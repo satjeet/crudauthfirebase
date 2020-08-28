@@ -1,12 +1,25 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+import { auth } from "./firebase";
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log(user);
+    store.dispatch("detectarUsuario", { email: user.email, uid: user.uid });
+  } else {
+    //si user esta vacio, llenara con un null usuario
+    console.log(user);
+    store.dispatch("detectarUsuario", user);
+  }
+
+  new Vue({
+    router,
+    store,
+    render: (h) => h(App),
+  }).$mount("#app");
+});
