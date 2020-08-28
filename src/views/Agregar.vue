@@ -5,8 +5,13 @@
       <input
         type="text"
         v-model="nombre"
+        placeholder="Ingrese tarea"
+        class="form-control mb-2"
       >
-      <button type="submit">Agregar</button>
+      <button
+        type="submit"
+        class="btn btn-primary mb-2"
+      >Agregar</button>
     </form>
   </div>
 </template>
