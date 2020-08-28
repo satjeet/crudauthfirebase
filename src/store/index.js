@@ -83,6 +83,7 @@ export default new Vuex.Store({
         .doc(id)
         .delete()
         .then(() => {
+          console.log("eliminacion exitosa");
           commit("setEliminarTarea", id);
         })
         .catch((error) => console.log(error));

@@ -6,13 +6,19 @@
         type="email"
         placeholder="Ingrese email"
         v-model="email"
+        class="form-control mb-2"
       >
       <input
         type="password"
         placeholder="Ingrese contraseña"
         v-model="pass"
+        autocomplete="on"
+        class="form-control mb-2"
       >
-      <button type="submit">Acceder</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >Acceder</button>
     </form>
     <p>{{error}}</p>
   </div>
