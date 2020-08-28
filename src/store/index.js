@@ -11,6 +11,7 @@ export default new Vuex.Store({
     usuario: null,
     error: null,
     tareas: { nombre: "", id: "" },
+    tarea: { nombre: "", id: "" },
   },
   mutations: {
     setUsuario(state, payload) {
@@ -131,12 +132,12 @@ export default new Vuex.Store({
       commit("setUsuario", usuario);
     },
     cerrarSesion({ commit }) {
+      router.push({ path: "/ingreso" });
       auth
         .signOut()
         .then(function() {
           // Sign-out successful.
           console.log("exit exitoso  ");
-          router.push({ path: "/ingreso" });
         })
         .catch(function(error) {
           // An error happened.
